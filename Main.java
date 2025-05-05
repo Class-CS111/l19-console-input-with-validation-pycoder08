@@ -4,19 +4,25 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		Scanner keyboard;
-		keyboard = new Scanner(System.in);
-		NetflixOriginal[] shows = new NetflixOriginal[2];
+		Scanner keyboard = new Scanner(System.in); // Scanner object
+		NetflixOriginal[] shows = new NetflixOriginal[2]; // Array of NetflixOriginals
 
+		// Enter show one
 		shows[0] = instantiateFromInput(keyboard);
 		System.out.println(shows[0]);
 
+		// Enter show two
 		shows[1] = instantiateFromInput(keyboard);
 		System.out.println(shows[1]);
 
 		
 	}
 	//** STATIC METHODS **//
+	/**
+	 * Asks user for name, rating, and genre of show, returns resulting object
+	 * @param inputScanner scanner object for the user to use as input
+	 * @return NetflixOriginal object
+	 */
 	public static NetflixOriginal instantiateFromInput(Scanner inputScanner)
 	{
 		// LCVs for the loops
@@ -36,6 +42,8 @@ public class Main
 		name = inputScanner.nextLine();
 
 		System.out.println("Enter the rating of the netflix original");
+
+		// Ask until the user enters valid data
 		while (contRating)
 		{
 
@@ -51,8 +59,6 @@ public class Main
 			}
 		}
 		inputScanner.nextLine(); //Clear the buffer
-		
-		System.out.println(starRating);
 
 		System.out.println("Enter the genre of the netflix original:");
 		
@@ -89,6 +95,7 @@ public class Main
 			}
 		}
 
+		// Return object
 		return new NetflixOriginal(name, starRating, genre);
 
 
